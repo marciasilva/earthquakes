@@ -39,7 +39,7 @@ public class QuakeSort {
     
     
     public void sortByLargestDepth(ArrayList<QuakeEntry> in){
-    	for(int i = 0; i< 50; i++){
+    	for(int i = 0; i< 70; i++){
     		int maxIdx = getLargestDepth(in, i);
     		QuakeEntry qe = in.get(i);
     		QuakeEntry qMax = in.get(maxIdx);
@@ -145,13 +145,13 @@ public class QuakeSort {
     /* tester method to use in BlueJ */
     public void testSort(){
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "D:/Personal/DukeFour/data/earthQuakeDataWeekDec6sample2.atom.txt";
+        String source = "D:/Personal/EarthQuakes/data/earthQuakeDataWeekDec6sample2.atom.txt";
         
         ArrayList<QuakeEntry> list = parser.read(source);
         //sortByMagnitudeInPlace(list);
         //sortByLargestDepth(list);
         sortByMagnitudeWithBubbleSortWithCheck(list);
-//        list = parser.read(source);
+//       list = parser.read(source);
 //
         //sortByMagnitudeWithCheck(list);
     }

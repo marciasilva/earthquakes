@@ -17,7 +17,7 @@ import java.util.*;
 public class DifferentSorters {
     public void sortWithCompareTo() {
         EarthQuakeParser parser = new EarthQuakeParser();
-        String source = "D:/Personal/DukeFour/data/earthQuakeDataWeekDec6sample2.atom.txt";
+        String source = "D:/Personal/EarthQuakes/data/earthQuakeDataWeekDec6sample1.atom.txt";
         //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
         ArrayList<QuakeEntry> list  = parser.read(source);
         Collections.sort(list);
@@ -56,7 +56,7 @@ public class DifferentSorters {
     
     public void sortByTitleAndDepth(){
     	  EarthQuakeParser parser = new EarthQuakeParser();
-          String source = "D:/Personal/DukeFour/data/earthQuakeDataWeekDec6sample2.atom.txt";
+          String source = "D:/Personal/EarthQuakes/data/earthQuakeDataWeekDec6sample1.atom.txt";
           //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
           ArrayList<QuakeEntry> list  = parser.read(source);
           Collections.sort(list, new TitleAndDepthComparator());
@@ -67,7 +67,7 @@ public class DifferentSorters {
     
     public void sortByLastWordInTitleThenByMagnitude(){
     	 EarthQuakeParser parser = new EarthQuakeParser();
-         String source = "D:/Personal/DukeFour/data/earthQuakeDataWeekDec6sample2.atom.txt";
+         String source = "D:/Personal/EarthQuakes/data/earthQuakeDataWeekDec6sample2.atom.txt";
          //String source = "http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.atom";
          ArrayList<QuakeEntry> list  = parser.read(source);
          Collections.sort(list, new TitleLastAndMagnitudeComparator());
