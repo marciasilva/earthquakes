@@ -9,12 +9,14 @@ package week03;
  */
 
 import edu.duke.*;
+import java.util.*;
 
 public class MarkovRunner {
     public void runMarkovZero() {
 		FileResource fr = new FileResource();
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
+    	st = "an apple a day";
 		MarkovZero markov = new MarkovZero();
 		markov.setTraining(st);
 		for(int k=0; k < 3; k++){
@@ -22,7 +24,68 @@ public class MarkovRunner {
 			printOut(text);
 		}
 	}
-	
+    
+    public void runMarkovOne(){
+    	FileResource fr = new FileResource();
+    	String st = fr.asString();
+    	st = st.replace('\n', ' ');
+    	MarkovOne markov = new MarkovOne();
+    	markov.setRandom(42);
+    	markov.setTraining(st);
+    	for(int k=0; k < 1; k++){
+    		String text = markov.getRandomText(100);
+    		printOut(text);
+    	}
+    }
+    
+    public void runMarkovFour(){
+    	FileResource fr = new FileResource();
+    	String st = fr.asString();
+    	st = st.replace('\n', ' ');
+    	MarkovFour markov = new MarkovFour();
+    	markov.setRandom(25);
+    	markov.setTraining(st);
+    	for(int k=0; k < 3; k++){
+    		String text = markov.getRandomText(500);
+    		printOut(text);
+    	}
+    }
+    
+    public void runMarkovModel(){
+    	FileResource fr = new FileResource();
+    	String st = fr.asString();
+    	st = st.replace('\n', ' ');
+    	MarkovModel markov = new MarkovModel(6);
+    	markov.setRandom(38);
+    	markov.setTraining(st);
+    	for(int k=0; k < 1; k++){
+    		String text = markov.getRandomText(500);
+    		printOut(text);
+    	}
+    }
+    
+    private void testGetFollows(){
+    	String st = "this is a test yes this is a test.";
+    	MarkovOne markovOne = new MarkovOne();
+    	markovOne.setTraining(st);
+    	ArrayList<String> test = markovOne.getFollows("t");
+    	System.out.println("Size of follows: " + test.size());
+    	for(String a : test){
+    		System.out.print(a + "-");
+    	}
+    }
+    
+    private void testGetFollowsInFile(){
+    	FileResource fr = new FileResource();
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+    	MarkovOne markov = new MarkovOne();
+    	markov.setTraining(st);
+    	ArrayList<String> test = markov.getFollows("t");
+    	System.out.println("Size of follows: " + test.size());
+  
+    }
+
 	private void printOut(String s){
 		String[] words = s.split("\\s+");
 		int psize = 0;
@@ -38,4 +101,13 @@ public class MarkovRunner {
 		System.out.println("\n----------------------------------");
 	}
 	
+	public static void main(String args[]){
+		MarkovRunner mr = new MarkovRunner();
+//		mr.runMarkovZero();
+//		mr.runMarkovOne();
+//		mr.runMarkovFour();
+		mr.runMarkovModel();
+//		mr.testGetFollows();
+//		mr.testGetFollowsInFile();
+	}
 }

@@ -1,6 +1,5 @@
 package week03;
 
-
 /**
  * Write a description of class MarkovWordOne here.
  * 
