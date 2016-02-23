@@ -3,10 +3,7 @@ package week03;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MarkovFour {
-	private String myText;
-	private Random myRandom;
-	
+public class MarkovFour extends AbstractMarkovModel{	
 	public MarkovFour() {
 		myRandom = new Random();
 	}
@@ -41,7 +38,6 @@ public class MarkovFour {
 	}
 	
 	public ArrayList<String> getFollows(String key) {
-//		System.out.println("Key = " + key);
 		ArrayList<String> follows = new ArrayList<String>();
 	    int pos = 0;
 	    while (pos < myText.length()){

@@ -3,10 +3,7 @@ package week03;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MarkovOne {
-	private String myText;
-	private Random myRandom;
-	
+public class MarkovOne extends AbstractMarkovModel{
 	public MarkovOne() {
 		myRandom = new Random();
 	}

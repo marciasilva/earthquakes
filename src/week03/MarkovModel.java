@@ -3,9 +3,7 @@ package week03;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MarkovModel {
-	private String myText;
-	private Random myRandom;
+public class MarkovModel extends AbstractMarkovModel{
 	private int numPredict;
 	
 	public MarkovModel(int num) {
@@ -43,7 +41,6 @@ public class MarkovModel {
 	}
 	
 	public ArrayList<String> getFollows(String key) {
-//		System.out.println("Key = " + key);
 		ArrayList<String> follows = new ArrayList<String>();
 	    int pos = 0;
 	    while (pos < myText.length()){
