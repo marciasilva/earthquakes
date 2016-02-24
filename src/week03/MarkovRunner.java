@@ -64,6 +64,30 @@ public class MarkovRunner {
     	}
     }
     
+    public void runMarkovWordOne(){
+    	FileResource fr = new FileResource();
+    	String st = fr.asString();
+       	st = st.replace('\n', ' ');
+    	//st = "this is just a test yes this is a simple test";
+    	MarkovWordOne mwo = new MarkovWordOne();
+    	mwo.setRandom(175);
+    	mwo.setTraining(st);
+    	String text = mwo.getRandomText(120);
+    	printOut(text);
+    }
+    
+    public void runMarkovWordTwo(){
+    	FileResource fr = new FileResource();
+    	String st = fr.asString();
+    	st = st.replace('\n', ' ');
+    	//st = "this is just a test yes this is a simple test";
+    	MarkovWordTwo mwt = new MarkovWordTwo();
+    	mwt.setRandom(549);
+    	mwt.setTraining(st);
+    	String text = mwt.getRandomText(500);
+    	printOut(text);
+    }
+    
     private void testGetFollows(){
     	String st = "this is a test yes this is a test.";
     	MarkovOne markovOne = new MarkovOne();
@@ -83,7 +107,7 @@ public class MarkovRunner {
     	markov.setTraining(st);
     	ArrayList<String> test = markov.getFollows("th");
     	System.out.println("Size of follows: " + test.size());
-  
+ 
     }
 
 	private void printOut(String s){
@@ -106,8 +130,10 @@ public class MarkovRunner {
 //		mr.runMarkovZero();
 //		mr.runMarkovOne();
 //		mr.runMarkovFour();
-		mr.runMarkovModel();
+//		mr.runMarkovModel();
 //		mr.testGetFollows();
 //		mr.testGetFollowsInFile();
+//		mr.runMarkovWordOne();
+		mr.runMarkovWordTwo();
 	}
 }

@@ -32,4 +32,10 @@ public class WordGramTester {
 		}
 	}
 	
+	public static void main (String args[]){
+		WordGramTester tester = new WordGramTester();
+		//tester.testWordGram();
+		tester.testWordGramEquals();
+	}
+	
 }

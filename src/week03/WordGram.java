@@ -18,20 +18,26 @@ public class WordGram {
     }
 
     public int length(){
-        // TODO: Complete this method
-        return 0;
+        return myWords.length;
     }
 
     public String toString(){
         String ret = "";
-        // TODO: Complete this method
-
+        for (int i = 0; i < myWords.length; i++){
+        	ret += myWords[i] + " ";
+        }
         return ret.trim();
     }
 
     public boolean equals(Object o) {
         WordGram other = (WordGram) o;
-        // TODO: Complete this method
+        if(other.length() != this.length())
+        	return false;
+        for(int i =0; i< myWords.length; i++){
+        	if(! myWords[i].equals(other.wordAt(i))){
+        		return false;
+        	}
+        }
         return true;
 
     }

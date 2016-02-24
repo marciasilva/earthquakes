@@ -38,17 +38,36 @@ public class MarkovWordOne implements IMarkovModel {
 		    }
 			index = myRandom.nextInt(follows.size());
 			String next = follows.get(index);
+			//System.out.println("For the key: " + key + " ->: " + next);
 			sb.append(next);
 			sb.append(" ");
 			key = next;
 		}
 		
-		return sb.toString().trim();
+		return sb.toString().trim(); //remove the space on the end
+	}
+
+	
+	//Arrays doesn't have indexOf method 
+	private int indexOf(String [] words, String target, int start){
+		for (int i = start; i < words.length; i++){
+			if(words[i].equals(target))
+				return i;
+		}
+		return -1;
 	}
 	
-	private ArrayList<String> getFollows(String key) {
+	public ArrayList<String> getFollows(String key) {
 	    ArrayList<String> follows = new ArrayList<String>();
+	    int pos = 0;
+	    while (pos < myText.length){
+	    	int index = indexOf(myText, key, pos);
+	    	if(index == -1 || index + key.length() >= myText.length -1){
+	    		break;
+	    	}
+		    follows.add(myText[index + 1]);
+		    pos = index + 1;
+	    }  
 	    return follows;
     }
-
 }

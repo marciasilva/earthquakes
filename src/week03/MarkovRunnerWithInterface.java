@@ -13,7 +13,7 @@ import edu.duke.*;
 public class MarkovRunnerWithInterface {
     public void runModel(IMarkovModel markov, String text, int size, int seed) {
         markov.setTraining(text);
-        markov.setRandom(seed);
+       // markov.setRandom(seed);
         System.out.println("running with " + markov.toString());
         for(int k=0; k < 3; k++){
 			String st= markov.getRandomText(size);
@@ -28,17 +28,20 @@ public class MarkovRunnerWithInterface {
 		int size = 200;
 		int seed = 8;
 		
-        MarkovZero mz = new MarkovZero();
-        runModel(mz, st, size, seed);
-    
-        MarkovOne mOne = new MarkovOne();
-        runModel(mOne, st, size, seed);
+//        MarkovZero mz = new MarkovZero();
+//        runModel(mz, st, size, seed);
+//    
+//        MarkovOne mOne = new MarkovOne();
+//        runModel(mOne, st, size, seed);
+//        
+//        MarkovModel mThree = new MarkovModel(3);
+//        runModel(mThree, st, size, seed);
+//        
+//        MarkovFour mFour = new MarkovFour();
+//        runModel(mFour, st, size, seed);
         
-        MarkovModel mThree = new MarkovModel(3);
-        runModel(mThree, st, size, seed);
-        
-        MarkovFour mFour = new MarkovFour();
-        runModel(mFour, st, size, seed);
+        MarkovWordOne mWordOne = new MarkovWordOne();
+        runModel(mWordOne, st, size, seed);
 
     }
     
@@ -99,8 +102,8 @@ public class MarkovRunnerWithInterface {
 	
 	public static void main(String args[]){
 		MarkovRunnerWithInterface mri = new MarkovRunnerWithInterface();
-		//mri.runMarkov();
-		mri.testHashMap();
+		mri.runMarkov();
+//		mri.testHashMap();
 //		mri.compareMethods();
 		
 	}
