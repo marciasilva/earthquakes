@@ -32,10 +32,19 @@ public class WordGramTester {
 		}
 	}
 	
+	private void testShiftAdd(){
+		String source = "this is a test";
+		String words[] = source.split("\\s+");
+		WordGram wg = new WordGram(words, 0, words.length);
+		WordGram teste = wg.shiftAdd("yes");
+		System.out.println("teste shifted : " + teste.toString());
+	}
+	
 	public static void main (String args[]){
 		WordGramTester tester = new WordGramTester();
 		//tester.testWordGram();
-		tester.testWordGramEquals();
+		//tester.testWordGramEquals();
+		tester.testShiftAdd();
 	}
 	
 }

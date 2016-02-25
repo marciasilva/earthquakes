@@ -42,10 +42,16 @@ public class WordGram {
 
     }
 
-    public void shiftAdd(String word) {	
-        // shift all words one towards 0 and add word at the end. 
-        // you lose the first word
-        // TODO: Complete this method
+    public WordGram shiftAdd(String word) {	
+    	String newArrayString [] = this.myWords;
+    	for(int i = 0; i < newArrayString.length -1; i++){
+    		newArrayString[i] = newArrayString[i +1];
+    	}
+    	if(newArrayString.length > 1){
+    		newArrayString[newArrayString.length -1] = word;
+    	}
+    	WordGram other = new WordGram(newArrayString, 0, this.length());
+    	return other;
     }
 
 }

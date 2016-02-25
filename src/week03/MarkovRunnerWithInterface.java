@@ -13,7 +13,7 @@ import edu.duke.*;
 public class MarkovRunnerWithInterface {
     public void runModel(IMarkovModel markov, String text, int size, int seed) {
         markov.setTraining(text);
-       // markov.setRandom(seed);
+       markov.setRandom(seed);
         System.out.println("running with " + markov.toString());
         for(int k=0; k < 3; k++){
 			String st= markov.getRandomText(size);
@@ -25,8 +25,6 @@ public class MarkovRunnerWithInterface {
         FileResource fr = new FileResource();
 		String st = fr.asString();
 		st = st.replace('\n', ' ');
-		int size = 200;
-		int seed = 8;
 		
 //        MarkovZero mz = new MarkovZero();
 //        runModel(mz, st, size, seed);
@@ -39,9 +37,10 @@ public class MarkovRunnerWithInterface {
 //        
 //        MarkovFour mFour = new MarkovFour();
 //        runModel(mFour, st, size, seed);
-        
-        MarkovWordOne mWordOne = new MarkovWordOne();
-        runModel(mWordOne, st, size, seed);
+		
+		EfficientMarkovModel emm = new EfficientMarkovModel(6);
+		emm.setRandom(792);
+		runModel(emm,st,100,792);
 
     }
     

@@ -29,9 +29,12 @@ public class MarkovWordTwo {
 		sb.append(" ");
 		sb.append(key2);
 		sb.append(" ");
+		System.out.println("numwords -1 " + (numWords-1));
 		for(int k=0; k < numWords-1; k++){
+			System.out.println("Entrei para gerar getfollow k " + k);
 		    ArrayList<String> follows = getFollows(key1, key2);
 		    if (follows.size() == 0) {
+		    	System.out.println("empty follows for " + key1 + " and " + key2);
 		        break;
 		    }
 			index = myRandom.nextInt(follows.size());
@@ -46,8 +49,8 @@ public class MarkovWordTwo {
 			sb.append(" ");
 			sb.append(next2);
 			sb.append(" ");
-			key1 = next;
-			key2 = next2;
+			key1 = next2;
+			key2 = next;
 		}
 		
 		return sb.toString().trim(); //remove the space on the end

@@ -68,9 +68,9 @@ public class EfficientMarkovModel extends AbstractMarkovModel{
 	}
 	
 	private void printHashMapInfo(){
-		if(keyMap.size() < 20){
-			System.out.println(Arrays.asList(keyMap));
-		}
+//		if(keyMap.size() < 20){
+//			System.out.println(Arrays.asList(keyMap));
+//		}
 		
 		System.out.println("Number of keys in the HashMap: " + keyMap.size());
 		int max = getLargestArrayList();
